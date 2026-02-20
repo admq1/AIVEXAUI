@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AIVEXA OS Panel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="wallpaper-overlay"></div>
+    <main class="desktop">
+      <header class="top-strip glass-panel">
+        <div>
+          <p class="eyebrow">AIVEXA Intelligence Workspace</p>
+          <h1>AIVEXA OS User Panel</h1>
+        </div>
+        <button id="apiKeyButton" class="primary-button">Set Cloud Key</button>
+      </header>
+
+      <section class="workspace-grid">
+        <aside class="models-panel glass-panel">
+          <h2>AI Models</h2>
+          <p class="subtle">Pick one of the five AIVEXA 1.5 model variants.</p>
+          <div id="modelList" class="model-list"></div>
+        </aside>
+
+        <section class="chat-panel glass-panel">
+          <div class="chat-header">
+            <div>
+              <p class="eyebrow">Active session</p>
+              <h2 id="activeModelTitle">AIVEXA 1.5 Core</h2>
+            </div>
+            <span class="status-pill">Online</span>
+          </div>
+
+          <div id="chatLog" class="chat-log">
+            <article class="message ai">
+              <h3>AIVEXA</h3>
+              <p>
+                Welcome to your Windows 11 style AIVEXA OS panel. Select a model and
+                start chatting.
+              </p>
+            </article>
+          </div>
+
+          <form id="chatForm" class="chat-form">
+            <input
+              id="promptInput"
+              type="text"
+              placeholder="Ask AIVEXA anything..."
+              autocomplete="off"
+              required
+            />
+            <button class="primary-button" type="submit">Send</button>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <footer class="taskbar glass-panel">
+      <div class="taskbar-icons">
+        <span class="task-icon windows"></span>
+        <span class="task-icon search"></span>
+        <span class="task-icon chat"></span>
+        <span class="task-icon ai"></span>
+      </div>
+      <p id="clock" class="clock"></p>
+    </footer>
+
+    <dialog id="apiKeyDialog" class="key-dialog glass-panel">
+      <form id="apiKeyForm" method="dialog">
+        <h3>Cloud API Key</h3>
+        <p>
+          Enter your cloud key once. It is stored only in your browser local storage.
+        </p>
+        <input id="apiKeyInput" type="password" placeholder="gsk_..." required />
+        <menu>
+          <button name="action" value="cancel">Cancel</button>
+          <button class="primary-button" name="action" value="save">Save</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
