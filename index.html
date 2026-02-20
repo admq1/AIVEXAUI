@@ -3,89 +3,120 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AIVEXA OS Panel</title>
+    <title>AIVEXA OS</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="wallpaper-overlay"></div>
-    <main class="desktop">
-      <header class="top-strip glass-panel">
-        <div>
-          <p class="eyebrow">AIVEXA Intelligence Workspace</p>
-          <h1>AIVEXA OS User Panel</h1>
+    <div class="bg"></div>
+
+    <section id="landingPage" class="page active">
+      <div class="hero glass">
+        <p class="tag">AIVEXA INTELLIGENCE SYSTEM</p>
+        <h1>AIVEXA OS 1.5</h1>
+        <p class="lead">
+          A next-gen AI operating workspace with multi-model switching, smart tools, and
+          ultra-fluid control.
+        </p>
+        <div class="hero-actions">
+          <button id="goLoginBtn" class="btn primary">Launch Now</button>
+          <button id="learnMoreBtn" class="btn ghost">Explore Features</button>
         </div>
-        <button id="apiKeyButton" class="primary-button">Set Cloud Key</button>
+      </div>
+      <div id="featureCards" class="feature-cards"></div>
+    </section>
+
+    <section id="loginPage" class="page">
+      <form id="loginForm" class="login glass">
+        <h2>Welcome Back</h2>
+        <p>Sign in to access your AIVEXA OS panel.</p>
+        <label>
+          Username
+          <input id="usernameInput" type="text" placeholder="Enter username" required />
+        </label>
+        <label>
+          Password
+          <input id="passwordInput" type="password" placeholder="Enter password" required />
+        </label>
+        <button class="btn primary" type="submit">Enter AIVEXA OS</button>
+        <button id="backLandingBtn" class="btn ghost" type="button">Back</button>
+      </form>
+    </section>
+
+    <section id="osPage" class="page">
+      <header class="topbar glass">
+        <div>
+          <p class="tag">ACTIVE USER SESSION</p>
+          <h2 id="welcomeTitle">AIVEXA OS Panel</h2>
+        </div>
+        <div class="topbar-actions">
+          <button id="focusBtn" class="btn ghost">Focus Mode</button>
+          <button id="logoutBtn" class="btn ghost">Logout</button>
+        </div>
       </header>
 
-      <section class="workspace-grid">
-        <aside class="models-panel glass-panel">
-          <h2>AI Models</h2>
-          <p class="subtle">Pick one of the five AIVEXA 1.5 model variants.</p>
+      <main class="grid">
+        <aside class="models glass">
+          <h3>Models</h3>
+          <p>Choose your AIVEXA 1.5 model.</p>
           <div id="modelList" class="model-list"></div>
+          <div class="now-card">
+            <small>Now Active</small>
+            <strong id="activeModel">AIVEXA 1.5 Core</strong>
+          </div>
         </aside>
 
-        <section class="chat-panel glass-panel">
-          <div class="chat-header">
-            <div>
-              <p class="eyebrow">Active session</p>
-              <h2 id="activeModelTitle">AIVEXA 1.5 Core</h2>
-            </div>
-            <span class="status-pill">Online</span>
+        <section class="chat glass">
+          <div class="chat-head">
+            <h3>AI Workspace</h3>
+            <span class="pill" id="modePill">Standard</span>
           </div>
-
-          <div id="chatLog" class="chat-log">
-            <article class="message ai">
-              <h3>AIVEXA</h3>
-              <p>
-                Welcome to your Windows 11 style AIVEXA OS panel. Select a model and
-                start chatting.
-              </p>
-            </article>
-          </div>
-
+          <div id="chatLog" class="chat-log"></div>
           <form id="chatForm" class="chat-form">
-            <input
-              id="promptInput"
-              type="text"
-              placeholder="Ask AIVEXA anything..."
-              autocomplete="off"
-              required
-            />
-            <button class="primary-button" type="submit">Send</button>
+            <input id="promptInput" placeholder="Message AIVEXA..." required />
+            <button class="btn primary" type="submit">Send</button>
           </form>
         </section>
-      </section>
-    </main>
 
-    <footer class="taskbar glass-panel">
-      <div class="taskbar-icons">
-        <span class="task-icon windows"></span>
-        <span class="task-icon search"></span>
-        <span class="task-icon chat"></span>
-        <span class="task-icon ai"></span>
-      </div>
-      <p id="clock" class="clock"></p>
-    </footer>
+        <section class="tools glass">
+          <h3>Smart Tools</h3>
+          <div class="tool-block">
+            <h4>Quick Notes</h4>
+            <textarea id="notesInput" placeholder="Write notes..."></textarea>
+            <button id="saveNotesBtn" class="btn primary" type="button">Save Notes</button>
+          </div>
+          <div class="tool-block">
+            <h4>Task Planner</h4>
+            <form id="todoForm" class="todo-form">
+              <input id="todoInput" placeholder="New task" />
+              <button class="btn ghost" type="submit">Add</button>
+            </form>
+            <ul id="todoList" class="todo-list"></ul>
+          </div>
+          <div class="tool-block stats">
+            <h4>Live System Stats</h4>
+            <p>Latency: <strong id="latencyStat">18 ms</strong></p>
+            <p>Tasks done: <strong id="taskDoneStat">0</strong></p>
+            <p>Time: <strong id="clock"></strong></p>
+          </div>
+        </section>
+      </main>
 
-    <dialog id="apiKeyDialog" class="key-dialog glass-panel">
-      <form id="apiKeyForm" method="dialog">
-        <h3>Cloud API Key</h3>
-        <p>
-          Enter your cloud key once. It is stored only in your browser local storage.
-        </p>
-        <input id="apiKeyInput" type="password" placeholder="gsk_..." required />
-        <menu>
-          <button name="action" value="cancel">Cancel</button>
-          <button class="primary-button" name="action" value="save">Save</button>
-        </menu>
-      </form>
-    </dialog>
+      <footer class="taskbar glass">
+        <div class="dock">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <p>AIVEXA OS • Secure AI Workspace</p>
+      </footer>
+    </section>
 
     <script src="app.js" defer></script>
   </body>
