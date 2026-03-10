@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AIVEXA OS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-vignette"></div>
+
+    <section id="landingPage" class="page page-active">
+      <header class="top-nav glass">
+        <h1>AIVEXA OS</h1>
+        <button id="goLoginBtn" class="btn btn-primary">Launch Workspace</button>
+      </header>
+
+      <main class="hero glass">
+        <p class="chip">Next-Gen AI Operating Layer</p>
+        <h2>Meet AIVEXA 1.5 Intelligence Platform</h2>
+        <p>
+          A visually immersive, OS-style AI workspace built for speed, creativity, and
+          strategic execution.
+        </p>
+        <div class="hero-actions">
+          <button id="heroStartBtn" class="btn btn-primary">Get Started</button>
+          <button id="heroPreviewBtn" class="btn btn-ghost">Preview Features</button>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card glass-soft">
+            <h3>5 AI Modes</h3>
+            <p>Specialized AIVEXA 1.5 variants tuned for different workflows.</p>
+          </article>
+          <article class="feature-card glass-soft">
+            <h3>Smart Workspace</h3>
+            <p>Chat, quick tools, notes, and activity insights in one command center.</p>
+          </article>
+          <article class="feature-card glass-soft">
+            <h3>Instant Ready</h3>
+            <p>No key prompts. Login and start using the platform immediately.</p>
+          </article>
+        </div>
+      </main>
+    </section>
+
+    <section id="loginPage" class="page">
+      <main class="login-card glass">
+        <h2>Welcome Back</h2>
+        <p>Sign in to enter your AIVEXA OS workspace.</p>
+        <form id="loginForm" class="login-form">
+          <input id="usernameInput" type="text" placeholder="Username" required />
+          <input id="passwordInput" type="password" placeholder="Password" required />
+          <button class="btn btn-primary" type="submit">Login</button>
+        </form>
+        <button id="backToLandingBtn" class="btn btn-ghost">Back</button>
+      </main>
+    </section>
+
+    <section id="panelPage" class="page">
+      <div class="panel-shell">
+        <header class="panel-header glass">
+          <div>
+            <p class="muted">AIVEXA Intelligence Workspace</p>
+            <h2 id="welcomeTitle">AIVEXA OS User Panel</h2>
+          </div>
+          <div class="header-metrics">
+            <span class="metric">Tasks: <strong id="taskCount">0</strong></span>
+            <span class="metric">Chats: <strong id="chatCount">0</strong></span>
+            <button id="logoutBtn" class="btn btn-ghost">Logout</button>
+          </div>
+        </header>
+
+        <main class="panel-grid">
+          <aside class="models glass">
+            <h3>AI Models</h3>
+            <p class="muted">Choose your AIVEXA 1.5 model.</p>
+            <div id="modelList" class="model-list"></div>
+
+            <h3>Quick Tools</h3>
+            <div class="tool-grid">
+              <button class="btn btn-tool" data-tool="summarize">Summarize</button>
+              <button class="btn btn-tool" data-tool="brainstorm">Brainstorm</button>
+              <button class="btn btn-tool" data-tool="plan">Create Plan</button>
+              <button class="btn btn-tool" data-tool="email">Draft Email</button>
+            </div>
+          </aside>
+
+          <section class="chat glass">
+            <div class="chat-top">
+              <div>
+                <p class="muted">Active model</p>
+                <h3 id="activeModelTitle">AIVEXA 1.5 Core</h3>
+              </div>
+              <span class="status">Live</span>
+            </div>
+
+            <div id="chatLog" class="chat-log"></div>
+
+            <form id="chatForm" class="chat-form">
+              <input
+                id="promptInput"
+                type="text"
+                placeholder="Ask AIVEXA anything..."
+                required
+              />
+              <button class="btn btn-primary" type="submit">Send</button>
+            </form>
+          </section>
+
+          <aside class="side glass">
+            <h3>Focus Notes</h3>
+            <textarea id="notesInput" placeholder="Write your notes..."></textarea>
+            <button id="saveNotesBtn" class="btn btn-primary">Save Notes</button>
+
+            <h3>Session Actions</h3>
+            <button id="clearChatBtn" class="btn btn-ghost">Clear Chat</button>
+            <p class="muted" id="clock"></p>
+          </aside>
+        </main>
+      </div>
+    </section>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
